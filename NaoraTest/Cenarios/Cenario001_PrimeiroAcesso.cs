@@ -104,7 +104,7 @@ namespace NaoraTeste.Cenarios
             numLinhas = IntegracaoExcel.NumLinhas(caminho, "Login");
             DocumentoPDF.EscrevePDF(caminho, "Login\n" + "Total de testes - " + (numLinhas-1).ToString());
 
-            for (int i = 2; i <= numLinhas; i++)
+            for (int i = 2; i <= 2; i++)
             {
                driver.Navigate().GoToUrl(LoginUrl);
 

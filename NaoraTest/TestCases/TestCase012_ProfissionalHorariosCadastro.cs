@@ -14,7 +14,7 @@ namespace NaoraTest.TestCases
 {
     class TestCase012_ProfissionalHorariosCadastro
     {
-        public static string ProfissionalHorarios(IWebDriver driver)
+        public static string ProfissionalHorarios(IWebDriver driver, string tipo, string turno, string recorrente)
         {
             try
             {
@@ -74,6 +74,8 @@ namespace NaoraTest.TestCases
 
                 System.Threading.Thread.Sleep(3000);
                 driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/div/div[1]/button")).Click();
+
+                System.Threading.Thread.Sleep(5000);
 
                 return "SUCESSO";
             }

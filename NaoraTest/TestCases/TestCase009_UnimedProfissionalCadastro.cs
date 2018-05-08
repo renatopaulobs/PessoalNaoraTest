@@ -18,10 +18,7 @@ namespace NaoraTest.TestCases
             try
             {
                 WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-
-                if (tipo == "malformado")
-                    return "SUCESSO";
-
+               
                 //Cadastro Pessoal
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div[1]/div/div[1]/input")).SendKeys(crm);
                 var selectElement = new SelectElement(driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div[1]/div/div[2]/select")));
@@ -29,6 +26,9 @@ namespace NaoraTest.TestCases
 
                 driver.FindElement(By.XPath("//*[@id=\"cpf\"]")).SendKeys(cpf);
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div[3]/button")).Click();
+
+                if (tipo == "malFormado")
+                    return "SUCESSO";
 
                 System.Threading.Thread.Sleep(2000);
                     

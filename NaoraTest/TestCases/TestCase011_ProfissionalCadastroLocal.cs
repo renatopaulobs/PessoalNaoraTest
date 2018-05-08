@@ -21,7 +21,7 @@ namespace NaoraTest.TestCases
                 driver.FindElement(By.XPath("//*[@id=\"Telefone\"]")).SendKeys(telefone);
                 driver.FindElement(By.XPath("//*[@id=\"Endereco_Cep\"]")).SendKeys(cep);
                 driver.FindElement(By.XPath("//*[@id=\"Endereco_Numero\"]")).SendKeys(numero);
-                driver.FindElement(By.XPath("//*[@id=\"Salvar\"]")).Click();
+                //driver.FindElement(By.XPath("//*[@id=\"Salvar\"]")).Click();
                 
                 return "SUCESSO";
             }
