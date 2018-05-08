@@ -108,6 +108,7 @@ namespace NaoraTest.Cenarios
                 recorrente = IntegracaoExcel.LeTabela(caminho, "ProfissionalCadastroHorarios", i, 3);
 
                 TestCase010_UnimedProfissionalLogin.ProfissionalLogin(driver, "teste@teste.com", "123456");
+                //TestCase011_ProfissionalCadastroLocal.ProfissionalLocal(driver, "Estabelecimento Teste", "081999999999", "50670160", "222");
                 resultadoTeste = TestCase012_ProfissionalHorariosCadastro.ProfissionalHorarios(driver, tipo, turno, recorrente);
 
                 DocumentoPDF.PrintScreen(caminho, driver, "ProfissionalCadastroHorarios", i);

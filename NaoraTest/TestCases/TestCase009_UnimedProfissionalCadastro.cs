@@ -64,15 +64,6 @@ namespace NaoraTest.TestCases
                     driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[3]/form/div/div[1]/div[11]/div/button")).Click();
                     System.Threading.Thread.Sleep(5000);
 
-                    driver.FindElement(By.XPath("/html/body/div[1]/div/div[2]/ul/li[4]/a/span")).Click();
-                    System.Threading.Thread.Sleep(4000);
-
-                    driver.FindElement(By.XPath("//*[@id=\"configuracoes-button\"]")).Click();
-                    System.Threading.Thread.Sleep(3000);
-
-                    driver.FindElement(By.XPath("//*[@id=\"logoutLink\"]")).Click();
-                    System.Threading.Thread.Sleep(3000);
-
                     return "SUCESSO";
                 }
                 return "SUCESSO";

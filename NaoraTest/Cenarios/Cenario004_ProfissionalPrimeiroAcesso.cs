@@ -43,9 +43,9 @@ namespace NaoraTest.Cenarios
 
             IWebDriver driver = new FirefoxDriver();
             numLinhas = IntegracaoExcel.NumLinhas(caminho, "CadastroProfissional");
-            DocumentoPDF.EscrevePDF(caminho, "Cadastro Profissional\n"+"Total de testes - " + (numLinhas-1).ToString());
+            DocumentoPDF.EscrevePDF(caminho, "Cadastro Pagamento Profissional\n"+"Total de testes - " + (numLinhas-1).ToString());
 
-            for (int i=2; i<=2; i++)
+            for (int i=2; i<=numLinhas; i++)
             {
                 driver.Navigate().GoToUrl(BuscaUrl);
 
@@ -98,7 +98,7 @@ namespace NaoraTest.Cenarios
 
             IWebDriver driver = new FirefoxDriver();
             numLinhas = IntegracaoExcel.NumLinhas(caminho, "CadastroProfissional");
-            DocumentoPDF.EscrevePDF(caminho, "Cadastro Profissional\n" + "Total de testes - " + (numLinhas - 1).ToString());
+            DocumentoPDF.EscrevePDF(caminho, "Cadastro Dados Profissional\n" + "Total de testes - " + (numLinhas - 1).ToString());
 
             for (int i = 2; i <= 2; i++)
             {
