@@ -42,12 +42,12 @@ namespace NaoraTest.Cenarios
             var options = new FirefoxOptions();
             options.AddArgument("headless");
 
+            IWebDriver driver = new FirefoxDriver();
             numLinhas = IntegracaoExcel.NumLinhas(caminho, "UnimedCadastroProfissional");
             DocumentoPDF.EscrevePDF(caminho, "Cadastro Profissional Unimed\n" + "Total de testes - " + (numLinhas - 1).ToString());
 
-            for (int i = 2; i <= 2; i++)
+            for (int i = 2; i <= numLinhas; i++)
             {
-                IWebDriver driver = new FirefoxDriver();
                 driver.Navigate().GoToUrl(buscaUrl);
 
                 DeletePaciente.DeleteProfissionalUnimed();
@@ -76,7 +76,6 @@ namespace NaoraTest.Cenarios
                     DocumentoPDF.AdicionaImagem(caminho, @"Images\Screenshots\SeleniumTestingScreenshotUnimedCadastroProfissional" + i.ToString());
                     DocumentoPDF.EscreveFalha(caminho, tipo + ": " + crm + ", " + estado + ", " + cpf + ", " + email + ", " + senha + ", " + profissao + ", " + especialidade);
                 }
-                driver.Close();
             }
             IntegracaoExcel.FechaArquivo(caminho, "UnimedCadastroProfissional");
             DocumentoPDF.EscreveResultado(caminho, "Passed: " + (numLinhas - 1 - contTesteFalha).ToString() + " / Failed: " + contTesteFalha.ToString());
@@ -85,13 +84,13 @@ namespace NaoraTest.Cenarios
             contTesteFalha = 0;
             contTesteSucesso = 0;
 
+            driver.Close();
             return qtdFalhas;
         }
 
-        public int ProfissionalHorariosCadastro(string caminho)
+        public int ProfissionaHorariosCadastro(string caminho)
         {
             int qtdFalhas;
-            string turno, recorrente;
             var options = new FirefoxOptions();
             options.AddArgument("headless");
 
@@ -99,20 +98,18 @@ namespace NaoraTest.Cenarios
             numLinhas = IntegracaoExcel.NumLinhas(caminho, "ProfissionalCadastroHorarios");
             DocumentoPDF.EscrevePDF(caminho, "Cadastro Profissional Horario\n" + "Total de testes - " + (numLinhas - 1).ToString());
 
-            for (int i = 2; i <= 2; i++)
+            for (int i = 2; i <= numLinhas; i++)
             {
                 driver.Navigate().GoToUrl(buscaUrl);
 
                 tipo = IntegracaoExcel.LeTabela(caminho, "ProfissionalCadastroHorarios", i, 1);
-                turno = IntegracaoExcel.LeTabela(caminho, "ProfissionalCadastroHorarios", i, 2);
-                recorrente = IntegracaoExcel.LeTabela(caminho, "ProfissionalCadastroHorarios", i, 3);
+                nome = IntegracaoExcel.LeTabela(caminho, "ProfissionalCadastroHorarios", i, 2);
 
                 TestCase010_UnimedProfissionalLogin.ProfissionalLogin(driver, "teste@teste.com", "123456");
-                //TestCase011_ProfissionalCadastroLocal.ProfissionalLocal(driver, "Estabelecimento Teste", "081999999999", "50670160", "222");
-                resultadoTeste = TestCase012_ProfissionalHorariosCadastro.ProfissionalHorarios(driver, tipo, turno, recorrente);
+                resultadoTeste = TestCase012_ProfissionalHorariosCadastro.ProfissionalHorarios(driver);
 
                 DocumentoPDF.PrintScreen(caminho, driver, "ProfissionalCadastroHorarios", i);
-                IntegracaoExcel.EscreveTabela(caminho, "ProfissionalCadastroHorarios", i, 4, resultadoTeste);
+                IntegracaoExcel.EscreveTabela(caminho, "ProfissionalCadastroHorarios", i, 3, resultadoTeste);
 
                 if (resultadoTeste == "SUCESSO")
                 {
@@ -141,13 +138,13 @@ namespace NaoraTest.Cenarios
             int qtdFalhas;
             var options = new FirefoxOptions();
             options.AddArgument("headless");
-          
+
+            IWebDriver driver = new FirefoxDriver();
             numLinhas = IntegracaoExcel.NumLinhas(caminho, "UnimedLoginProfissional");
             DocumentoPDF.EscrevePDF(caminho, "Login Profissional Unimed\n" + "Total de testes - " + (numLinhas - 1).ToString());
 
-            for (int i = 2; i <= 2; i++)
+            for (int i = 2; i <= numLinhas; i++)
             {
-                IWebDriver driver = new FirefoxDriver();
                 driver.Navigate().GoToUrl(buscaUrl);
 
                 tipo = IntegracaoExcel.LeTabela(caminho, "UnimedLoginProfissional", i, 1);
@@ -169,7 +166,6 @@ namespace NaoraTest.Cenarios
                     DocumentoPDF.AdicionaImagem(caminho, @"Images\Screenshots\SeleniumTestingScreenshotUnimedLoginProfissional" + i.ToString());
                     DocumentoPDF.EscreveFalha(caminho, tipo + ": " + email + ", " + senha);
                 }
-                driver.Close();
             }
             IntegracaoExcel.FechaArquivo(caminho, "UnimedLoginProfissional");
             DocumentoPDF.EscreveResultado(caminho, "Passed: " + (numLinhas - 1 - contTesteFalha).ToString() + " / Failed: " + contTesteFalha.ToString());
@@ -178,6 +174,7 @@ namespace NaoraTest.Cenarios
             contTesteFalha = 0;
             contTesteSucesso = 0;
 
+            driver.Close();
             return qtdFalhas;
         }
 
@@ -187,12 +184,12 @@ namespace NaoraTest.Cenarios
             var options = new FirefoxOptions();
             options.AddArgument("headless");
 
+            IWebDriver driver = new FirefoxDriver();
             numLinhas = IntegracaoExcel.NumLinhas(caminho, "CadastroLocal");
             DocumentoPDF.EscrevePDF(caminho, "Cadastro Profissional Local\n" + "Total de testes - " + (numLinhas - 1).ToString());
 
-            for (int i = 2; i <= 2; i++)
+            for (int i = 2; i <= numLinhas; i++)
             {
-                IWebDriver driver = new FirefoxDriver();
                 driver.Navigate().GoToUrl(buscaUrl);
 
                 tipo = IntegracaoExcel.LeTabela(caminho, "CadastroLocal", i, 1);
@@ -201,7 +198,7 @@ namespace NaoraTest.Cenarios
                 cep = IntegracaoExcel.LeTabela(caminho, "CadastroLocal", i, 4);
                 numero = IntegracaoExcel.LeTabela(caminho, "CadastroLocal", i, 5);
 
-                TestCase010_UnimedProfissionalLogin.ProfissionalLogin(driver, "teste@teste.com", "123456");
+                TestCase010_UnimedProfissionalLogin.ProfissionalLogin(driver, email, senha);
                 resultadoTeste = TestCase011_ProfissionalCadastroLocal.ProfissionalLocal(driver, nome, telefone, cep, numero);
 
                 DocumentoPDF.PrintScreen(caminho, driver, "CadastroLocal", i);
@@ -217,8 +214,6 @@ namespace NaoraTest.Cenarios
                     DocumentoPDF.AdicionaImagem(caminho, @"Images\Screenshots\SeleniumTestingScreenshotCadastroLocal" + i.ToString());
                     DocumentoPDF.EscreveFalha(caminho, tipo + ": " + nome + ", " + telefone + ", " + cep + ", " + numero);
                 }
-
-               driver.Close();
             }
             IntegracaoExcel.FechaArquivo(caminho, "CadastroLocal");
             DocumentoPDF.EscreveResultado(caminho, "Passed: " + (numLinhas - 1 - contTesteFalha).ToString() + " / Failed: " + contTesteFalha.ToString());
@@ -227,6 +222,7 @@ namespace NaoraTest.Cenarios
             contTesteFalha = 0;
             contTesteSucesso = 0;
 
+            driver.Close();
             return qtdFalhas;
         }
     }

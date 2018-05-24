@@ -1,0 +1,5 @@
+Os arquivos de dados de entrada, printscreens e pdfs dos relatorios de testes estão em:
+
+** main -> bin -> Debug -> ArquivosDados **
+
+Realizar modificações nas tabelas de entrada dos arquivos dessa pasta.

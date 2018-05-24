@@ -42,25 +42,27 @@ namespace main
 
             //Paciente
             //numFalhas = numFalhas + primeiroAcesso.Cadastro(caminho); numSuites++; numCasos = numCasos + numCasosCadastro; 
-            numFalhas = numFalhas + primeiroAcesso.Login(caminho); numSuites++; numCasos = numCasos + numCasosLogin;
-            numFalhas = numFalhas + busca.BuscaNome(caminho); numSuites++; numCasos = numCasos + numCasosBuscaNome;
-            numFalhas = numFalhas + busca.BuscaEspecialidade(caminho); numSuites++; numCasos = numCasos + numCasosBuscaEspecialidade;
+            //numFalhas = numFalhas + primeiroAcesso.Login(caminho); numSuites++; numCasos = numCasos + numCasosLogin;
+            //numFalhas = numFalhas + busca.BuscaNome(caminho); numSuites++; numCasos = numCasos + numCasosBuscaNome;
+            //numFalhas = numFalhas + busca.BuscaEspecialidade(caminho); numSuites++; numCasos = numCasos + numCasosBuscaEspecialidade;
             //numFalhas = numFalhas + modificaUsuario.ModificaUsuario(caminho); numSuites++; numCasos = numCasos + numCasosModifica;
 
             //Profissional Agenda
             numFalhas = numFalhas + profissionalPrimeiroAcesso.CadastroProfissionalPagamento(caminho); numSuites++; numCasos = numCasos + numCasosCadastroProfissional;
-            numFalhas = numFalhas + profissionalPrimeiroAcesso.CadastroProfissionalDados(caminho); numSuites++; numCasos = numCasos + numCasosCadastroProfissional;
+            //numFalhas = numFalhas + profissionalPrimeiroAcesso.CadastroProfissionalDados(caminho); numSuites++; numCasos = numCasos + numCasosCadastroProfissional;
 
             //Unimed Profissional Agenda
-            numFalhas = numFalhas + unimedProfissionalPrimeiroAcesso.ProfissionalCadastro(caminho); numSuites++; numCasos = numCasos + numCasosUnimedCadastroProfissional;
-            numFalhas = numFalhas + unimedProfissionalPrimeiroAcesso.ProfissionalLocal(caminho); numSuites++; numCasos = numCasos + numCasosUnimedLocal;
-            numFalhas = numFalhas + unimedProfissionalPrimeiroAcesso.ProfissionalLogin(caminho); numSuites++; numCasos = numCasos + numCasosUnimedLogin;
-            numFalhas = numFalhas + unimedProfissionalPrimeiroAcesso.ProfissionalHorariosCadastro(caminho); numSuites++; numCasos = numCasos + numCasosHorariosCadastro;
+            //numFalhas = numFalhas + unimedProfissionalPrimeiroAcesso.ProfissionalCadastro(caminho); numSuites++; numCasos = numCasos + numCasosUnimedCadastroProfissional;
+            //numFalhas = numFalhas + unimedProfissionalPrimeiroAcesso.ProfissionalLocal(caminho); numSuites++; numCasos = numCasos + numCasosUnimedLocal;
+            //numFalhas = numFalhas + unimedProfissionalPrimeiroAcesso.ProfissionalLogin(caminho); numSuites++; numCasos = numCasos + numCasosUnimedLogin;
+            //numFalhas = numFalhas + unimedProfissionalPrimeiroAcesso.ProfissionaHorariosCadastro(caminho); numSuites++; numCasos = numCasos + numCasosHorariosCadastro;
             
+            //Insere uma tabela com informações do que foi executado 
             DocumentoPDF.AdicionaTabela(numSuites, numFalhas, numCasos);
             DocumentoPDF.FechaDocumento();
             DocumentoPDF.AdicionaPaginaNum(caminho);
 
+            //Envia email com relatório de execução de testes para o email inserido 
             //SendEmail.EmailProperties(caminho,"renatopaulobs@gmail.com");
         }
     }

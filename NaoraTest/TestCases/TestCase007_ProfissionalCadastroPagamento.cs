@@ -26,9 +26,7 @@ namespace NaoraTest.TestCases
                 driver.FindElement(By.XPath("//*[@id=\"paymentMethod_creditCard_holder_name\"]")).SendKeys(nome);
                 driver.FindElement(By.XPath("//*[@id=\"card\"]/div/input")).Clear();
 
-                IWebElement wb = driver.FindElement(By.XPath("//*[@id=\"card\"]/div/input"));
-                IJavaScriptExecutor jse = (IJavaScriptExecutor)driver;
-                jse.ExecuteScript("arguments[0].value='44444';", wb);
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[3]/div/form/div/div[6]/div/div/div/input[1]")).SendKeys(numeroCartao);
 
                 if (tipo == "malFormado")
                 {

@@ -91,7 +91,7 @@ namespace NaoraTeste.Util
         public static void AdicionaImagem(string caminho, string imagem)
         {
             iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(caminho + imagem + ".jpg");
-            image.ScalePercent(25f);
+            image.ScalePercent(35f);
             image.Alignment = Element.ALIGN_CENTER;
             document.Add(image);
         }
