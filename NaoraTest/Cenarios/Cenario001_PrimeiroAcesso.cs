@@ -66,8 +66,6 @@ namespace NaoraTeste.Cenarios
                 DocumentoPDF.PrintScreen(caminho, driver,"Cadastro", i);
                 IntegracaoExcel.EscreveTabela(caminho, "Cadastro", i, 8, resultadoTeste);
 
-                ConfirmacaoEmail.confirmarEmail(driver);
-
                 if (resultadoTeste == "SUCESSO")
                 {
                     contTesteSucesso++;

@@ -15,7 +15,7 @@ namespace NaoraTest.perfilUsuario
     {
         public static string msg = "msg";
 
-        public static string Busca(IWebDriver driver, string tipoConvenio)
+        public static string Busca(IWebDriver driver, string tipo, string tipoConvenio)
         {
             try
             {
@@ -31,6 +31,15 @@ namespace NaoraTest.perfilUsuario
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
+
+                    if (tipo == "semCadastro")
+                    {
+                        return "SUCESSO";
+                    }
+                    else
+                    {
+                        return "FALHA";
+                    }
                 }
               
                 return "SUCESSO";

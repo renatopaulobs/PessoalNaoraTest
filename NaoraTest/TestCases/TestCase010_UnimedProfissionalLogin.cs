@@ -19,9 +19,7 @@ namespace NaoraTest.TestCases
             {
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div[2]/input")).SendKeys(email);
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div[3]/input")).SendKeys(senha);
-
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div[2]/div/div[2]/div[4]/button")).Click();
-
                 System.Threading.Thread.Sleep(2000);
 
                 return "SUCESSO";

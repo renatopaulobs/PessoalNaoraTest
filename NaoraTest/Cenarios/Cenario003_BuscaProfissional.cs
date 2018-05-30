@@ -102,7 +102,7 @@ namespace NaoraTeste.Cenarios
                 tipo = IntegracaoExcel.LeTabela(caminho, "BuscaEspecialidade", i, 1);
                 especialidade = IntegracaoExcel.LeTabela(caminho, "BuscaEspecialidade", i, 2);
 
-                resultadoTeste = TestCase004_BuscaEspecialidade.Busca(driver, especialidade);
+                resultadoTeste = TestCase004_BuscaEspecialidade.Busca(driver, tipo, especialidade);
 
                 DocumentoPDF.PrintScreen(caminho, driver, "BuscaEspecialidade", i);
                 IntegracaoExcel.EscreveTabela(caminho, "BuscaEspecialidade", i, 3, resultadoTeste);

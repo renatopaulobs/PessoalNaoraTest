@@ -91,7 +91,7 @@ namespace NaoraTeste.Util
         public static void AdicionaImagem(string caminho, string imagem)
         {
             iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(caminho + imagem + ".jpg");
-            image.ScalePercent(35f);
+            image.ScalePercent(25f);
             image.Alignment = Element.ALIGN_CENTER;
             document.Add(image);
         }
@@ -149,8 +149,15 @@ namespace NaoraTeste.Util
 
         public static void PrintScreen(string caminho, IWebDriver driver, string tipo, int i)
         {
-            Screenshot screenShot = ((ITakesScreenshot)driver).GetScreenshot();
-            screenShot.SaveAsFile(caminho + @"Images\Screenshots\SeleniumTestingScreenshot" + tipo + i.ToString() + ".jpg", OpenQA.Selenium.ScreenshotImageFormat.Jpeg);
+            try
+            {
+                Screenshot screenShot = ((ITakesScreenshot)driver).GetScreenshot();
+                screenShot.SaveAsFile(caminho + @"Images\Screenshots\SeleniumTestingScreenshot" + tipo + i.ToString() + ".jpg", OpenQA.Selenium.ScreenshotImageFormat.Jpeg);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         public static void AdicionaPaginaNum(string caminho)

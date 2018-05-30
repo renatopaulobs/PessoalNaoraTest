@@ -88,8 +88,6 @@
     <Compile Include="TestCases\TestCase010_UnimedProfissionalLogin.cs" />
     <Compile Include="TestCases\TestCase011_ProfissionalCadastroLocal.cs" />
     <Compile Include="TestCases\TestCase012_ProfissionalHorariosCadastro.cs" />
-    <Compile Include="Util\Acesso.cs" />
-    <Compile Include="Util\ConfirmacaoEmail.cs" />
     <Compile Include="Util\DeletePaciente.cs" />
     <Compile Include="TestCases\TestCase001_Cadastro.cs" />
     <Compile Include="TestCases\TestCase002_Login.cs" />

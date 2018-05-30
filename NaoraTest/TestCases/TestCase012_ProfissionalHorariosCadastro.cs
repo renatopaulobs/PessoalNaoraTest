@@ -18,10 +18,10 @@ namespace NaoraTest.TestCases
         {
             try
             {
-                System.Threading.Thread.Sleep(5000);
+                System.Threading.Thread.Sleep(8000);
 
                 //Agendamento de horarios
-                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div[1]/div[1]/div[2]/div/ul/li[2]/div/h3/a/i")).Click();
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div[1]/div[1]/div[2]/div/ul/li[2]/a/span")).Click();
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div[1]/div[1]/div[2]/div/ul/li[2]/a/i")).Click();
                 System.Threading.Thread.Sleep(3000);
 
