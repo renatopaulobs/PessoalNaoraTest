@@ -2,4 +2,4 @@ Os arquivos de dados de entrada, printscreens e pdfs dos relatorios de testes es
 
 ** main -> bin -> Debug -> ArquivosDados **
 
-Realizar modificações nas tabelas excel dessa pasta.
+Realizar modificações nas tabelas excel dessa pasta,
