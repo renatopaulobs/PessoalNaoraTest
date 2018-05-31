@@ -37,7 +37,7 @@ namespace NaoraTest.perfilUsuario
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return "FALHA";
+                return "SUCESSO";
             }
         }
     }

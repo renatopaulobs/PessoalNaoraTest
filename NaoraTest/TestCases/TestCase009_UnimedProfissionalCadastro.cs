@@ -18,7 +18,7 @@ namespace NaoraTest.TestCases
             try
             {
                 WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-
+               
                 //Cadastro Pessoal
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div[1]/div/div[1]/input")).SendKeys(crm);
                 var selectElement = new SelectElement(driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div[1]/div/div[2]/select")));
@@ -27,15 +27,17 @@ namespace NaoraTest.TestCases
                 driver.FindElement(By.XPath("//*[@id=\"cpf\"]")).SendKeys(cpf);
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div[3]/button")).Click();
 
-                System.Threading.Thread.Sleep(5000);
+                if (tipo == "malFormado")
+                    return "SUCESSO";
+
+                System.Threading.Thread.Sleep(2000);
                     
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[3]/div/div/div[1]/input")).SendKeys(email);
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[3]/div/div/div[2]/input")).SendKeys(email);
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[3]/div/div/div[3]/input")).SendKeys(senha);
                 driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[3]/div/div/div[4]/input")).SendKeys(senha);
                 driver.FindElement(By.XPath("//*[@id=\"celular\"]")).SendKeys("087996562191");
-                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[3]/div/div/div[6]/label/input")).Click();
-                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[3]/div/div/div[7]/button")).Click();
+                driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[3]/div/div/div[6]/button")).Click();
 
                 System.Threading.Thread.Sleep(4000);
 

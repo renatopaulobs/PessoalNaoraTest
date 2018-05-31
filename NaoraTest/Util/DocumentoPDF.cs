@@ -149,15 +149,8 @@ namespace NaoraTeste.Util
 
         public static void PrintScreen(string caminho, IWebDriver driver, string tipo, int i)
         {
-            try
-            {
-                Screenshot screenShot = ((ITakesScreenshot)driver).GetScreenshot();
-                screenShot.SaveAsFile(caminho + @"Images\Screenshots\SeleniumTestingScreenshot" + tipo + i.ToString() + ".jpg", OpenQA.Selenium.ScreenshotImageFormat.Jpeg);
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+            Screenshot screenShot = ((ITakesScreenshot)driver).GetScreenshot();
+            screenShot.SaveAsFile(caminho + @"Images\Screenshots\SeleniumTestingScreenshot" + tipo + i.ToString() + ".jpg", OpenQA.Selenium.ScreenshotImageFormat.Jpeg);
         }
 
         public static void AdicionaPaginaNum(string caminho)

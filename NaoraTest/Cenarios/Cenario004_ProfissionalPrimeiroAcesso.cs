@@ -27,7 +27,7 @@ namespace NaoraTest.Cenarios
     [TestClass]
     public class Cenario004_ProfissionalPrimeiroAcesso
     {
-        string BuscaUrl = "https://agendanaorahomolog.azurewebsites.net/Usuario/Login";
+        string BuscaUrl = "https://agenda.naora.com.br/Usuario/Login";
 
         int numLinhas, contTesteSucesso = 0, contTesteFalha = 0;
         string resultadoTeste, tipo, nome, numeroCartao, titulo, nomePagina, cpf, sexo, profissao, experiencia, cep, rua, bairro, numero, cidade, estado, complemento;
@@ -98,14 +98,13 @@ namespace NaoraTest.Cenarios
 
             IWebDriver driver = new FirefoxDriver();
             numLinhas = IntegracaoExcel.NumLinhas(caminho, "CadastroProfissional");
-            DocumentoPDF.EscrevePDF(caminho, "Cadastro Dados " +
-                " Profissional\n" + "Total de testes - " + (numLinhas - 1).ToString());
+            DocumentoPDF.EscrevePDF(caminho, "Cadastro Dados Profissional\n" + "Total de testes - " + (numLinhas - 1).ToString());
 
-            for (int i = 2; i < numLinhas; i++)
+            for (int i = 2; i <= 2; i++)
             {
                 driver.Navigate().GoToUrl(BuscaUrl);
 
-                //DeletePaciente.DeleteProfissionalAgenda();
+                DeletePaciente.DeleteProfissionalAgenda();
 
                 tipo = IntegracaoExcel.LeTabela(caminho, "CadastroProfissional", i, 1);
                 nome = IntegracaoExcel.LeTabela(caminho, "CadastroProfissional", i, 2);

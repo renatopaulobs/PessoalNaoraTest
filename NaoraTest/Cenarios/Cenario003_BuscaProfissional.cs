@@ -48,7 +48,7 @@ namespace NaoraTeste.Cenarios
             numLinhas = IntegracaoExcel.NumLinhas(caminho, "BuscaNome");
             DocumentoPDF.EscrevePDF(caminho, "Busca por Nome\n" + "Total de testes - " + (numLinhas - 1).ToString());
 
-            for (int i = 2; i <= numLinhas; i++)
+            for (int i = 2; i <= 2; i++)
             {
                 driver.Navigate().GoToUrl(BuscaUrl);
 
@@ -95,14 +95,14 @@ namespace NaoraTeste.Cenarios
             numLinhas = IntegracaoExcel.NumLinhas(caminho, "BuscaEspecialidade");
             DocumentoPDF.EscrevePDF(caminho, "Busca por Especialidade\n" + "Total de testes - " + (numLinhas - 1).ToString());
 
-            for (int i = 2; i <= numLinhas; i++)
+            for (int i = 2; i <= 2; i++)
             {
                 driver.Navigate().GoToUrl(BuscaUrl);
 
                 tipo = IntegracaoExcel.LeTabela(caminho, "BuscaEspecialidade", i, 1);
                 especialidade = IntegracaoExcel.LeTabela(caminho, "BuscaEspecialidade", i, 2);
 
-                resultadoTeste = TestCase004_BuscaEspecialidade.Busca(driver, tipo, especialidade);
+                resultadoTeste = TestCase004_BuscaEspecialidade.Busca(driver, especialidade);
 
                 DocumentoPDF.PrintScreen(caminho, driver, "BuscaEspecialidade", i);
                 IntegracaoExcel.EscreveTabela(caminho, "BuscaEspecialidade", i, 3, resultadoTeste);

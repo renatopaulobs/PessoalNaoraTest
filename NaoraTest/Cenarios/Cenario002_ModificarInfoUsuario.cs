@@ -41,6 +41,7 @@ namespace NaoraTeste.Cenarios
             DocumentoPDF.EscrevePDF(caminho, "Edição de Usuário\n" + "Total de testes - " + (numLinhas - 1).ToString());
 
             driver.Navigate().GoToUrl(BaseUrl);
+            Acesso.AcessoNaora(driver);
 
             for (int i = 2; i <= numLinhas; i++)
             {

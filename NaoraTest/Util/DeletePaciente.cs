@@ -15,7 +15,7 @@ namespace NaoraTeste.perfilUsuario
 
             //connStr.ConnectionString = ConfigurationManager.ConnectionStrings["NaoraTeste"].ConnectionString;
             AvilaApplication.InitializeHelpers();
-            AvilaApplication.DataManipulation.Configure("naora", "@vil@2018", "naora-devhomolog.database.windows.net", "naora_dev", false);
+            AvilaApplication.DataManipulation.Configure("avilasolucoes@oe0dc5r5n9", "@vil@2015", "oe0dc5r5n9.database.windows.net,1433", "naora", false);
             Assert.IsTrue(AvilaApplication.DataManipulation.CheckConnection());
             AvilaApplication.DataManipulation.ExecuteProcedure("sp_deleteUsuarioAgenda", new string[] { "Email" }, new string[] { "teste@teste.com" });
         }

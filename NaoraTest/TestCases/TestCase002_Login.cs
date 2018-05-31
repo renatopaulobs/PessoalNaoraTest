@@ -10,7 +10,6 @@ using OpenQA.Selenium.Interactions;
 using log4net;
 using NaoraTeste.Util;
 
-
 namespace NaoraTest.perfilUsuario
 {
     class TestCase002_Login
@@ -19,7 +18,7 @@ namespace NaoraTest.perfilUsuario
         public static bool logado = true;
 
         [TestMethod]
-        public static string Login(IWebDriver driver, string caminho, string tipo, string email, string senha, string nome)
+        public static string Login(IWebDriver driver,string caminho, string tipo, string email, string senha, string nome)
         {
             try
             {
@@ -30,16 +29,29 @@ namespace NaoraTest.perfilUsuario
                 driver.FindElement(By.XPath("//*[@id=\"login-email\"]")).SendKeys(email);
                 driver.FindElement(By.XPath("//*[@id=\"login-senha\"]")).SendKeys(senha);
                 driver.FindElement(By.XPath("//*[@id=\"btn-login\"]")).Click();
-                System.Threading.Thread.Sleep(10000);
+                System.Threading.Thread.Sleep(8000);
+
+                if (tipo == "Nome")
+                {
+                    nomeExib = driver.FindElement(By.XPath("/html/body/web-agendamento/div[1]/div/div[2]/ul/li[1]/div/span")).Text;
+                }
+
+                try
+                {
+                    driver.FindElement(By.XPath("//*[@id=\"dropdownMenu2\"]")).Click();
+
+                    wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id=\"menu-sair\"]")));
+                    driver.FindElement(By.XPath("//*[@id=\"menu-sair\"]")).Click();
+                }
+                catch
+                {
+                    logado = false;
+                }
 
                 switch (tipo)
                 {
                     case "Nome":
                         {
-                            nomeExib = driver.FindElement(By.XPath("/html/body/web-agendamento/div[1]/div/div[2]/ul/li[1]/div/span")).Text;
-                            driver.FindElement(By.XPath("//*[@id=\"dropdownMenu2\"]")).Click();
-                            driver.FindElement(By.XPath("//*[@id=\"menu-sair\"]")).Click();
-
                             if (nomeExib == ("Olá, " + nome))
                                 return "SUCESSO";
                             else
@@ -47,20 +59,18 @@ namespace NaoraTest.perfilUsuario
                         }
                     case "Senha":
                         {
-                            if (nomeExib != ("Olá, " + nome))
-                                return "SUCESSO";
-                            else
+                            if (logado == true)
                                 return "FALHA";
+                            else
+                                return "SUCESSO";
                         }
-                    default:
-                        return "FALHA";
                 }
-
+                return "FALHA";
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return "FALHA";
+                return "SUCESSO";
             }
         }
     }
